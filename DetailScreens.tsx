@@ -1,19 +1,15 @@
 import {View, Button} from 'react-native';
 
-
-function DetailScreens ({navigation}) {
-
-    return (
-        
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+function DetailScreens({navigation}: any) {
+  return (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Button
         title="Go to Home"
         onPress={() => {
-          navigation.navigate('Home'); 
+          navigation.navigate('Home');
         }}
       />
     </View>
-        
-    )
+  );
 }
-export default DetailScreens
+export default DetailScreens;
