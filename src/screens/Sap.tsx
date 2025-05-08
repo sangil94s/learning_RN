@@ -14,23 +14,25 @@ const fetchData = async () => {
     );
 
     return response.data;
-  } catch (e: any) {
-    console.error('❌ Error:', e.message, e.code);
-    throw e;
+  } catch (e) {
+    const err = e as Error;
+    console.error('❌ Error:', err.message);
+    throw err;
   }
 };
 
 export default function Sap() {
-  const myCustomQuery = useQuery({
+  const {data, isLoading} = useQuery({
     queryKey: ['myData'],
     queryFn: fetchData,
     staleTime: 1000 * 60 * 5,
   });
+  if (isLoading) return <Text>Loading...</Text>;
 
   return (
     <View className="flex flex-col justify-center items-center bg-amber-400">
       <Text>삽질용 스크린 입니다.</Text>
-      <Text className="py-2">텍스트 : {myCustomQuery.data?.name}</Text>
+      <Text className="py-2">텍스트 : {data?.name}</Text>
     </View>
   );
 }
