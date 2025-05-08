@@ -19,11 +19,13 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomeScreens} />
-          <Stack.Screen name="Sap" component={Sap} />
+          <Stack.Screen
+            name="BottomNav"
+            component={Footer}
+            options={{headerShown: false}}
+          />
         </Stack.Navigator>
       </NavigationContainer>
-      <Footer />
     </QueryClientProvider>
   );
 }

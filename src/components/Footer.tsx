@@ -1,9 +1,14 @@
-import {View, Text} from 'react-native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import HomeScreens from '../../HomeScreens';
+import Sap from '../screens/Sap';
+
+const Tab = createBottomTabNavigator();
 
 export default function Footer() {
   return (
-    <View className="w-full bg-yellow-500 my-4">
-      <Text className="text-center text-purple-600">나는 Footer</Text>
-    </View>
+    <Tab.Navigator>
+      <Tab.Screen name="HomeScreens" component={HomeScreens} />
+      <Tab.Screen name="삽질 페이지" component={Sap} />
+    </Tab.Navigator>
   );
 }
